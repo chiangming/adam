@@ -13,6 +13,7 @@ Demo project for Spring Boot
 ## tools
 [H2 Database](https://www.h2database.com/html/main.html)  
 [Flayway](https://flywaydb.org/getstarted/)
+[Lombok](https://www.projectlombok.org/)
 
 ## Scripts
 
