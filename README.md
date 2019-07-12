@@ -15,8 +15,7 @@ Demo project for Spring Boot
 ```sql
 create table USER
 (
-  ID           INTEGER default (NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_57EB36C2_DF09_4A33_A2D1_15B9349807D5)
-    primary key,
+  ID           INTEGER default primary key,
   ACCOUNT_ID   VARCHAR(100),
   NAME         VARCHAR(50),
   TOKEN        CHAR(36),
