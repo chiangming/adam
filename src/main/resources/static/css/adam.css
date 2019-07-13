@@ -30,3 +30,13 @@ body{
     border: 1px solid transparent;
     border-radius: 4px;
 }
+
+.media-object{
+    width:60px;height: 60px;
+}
+
+.text-desc{
+    font-size: 12px;
+    font-weight: normal;
+    color:#999;
+}
