@@ -22,10 +22,8 @@ public class PaginationDTO {
     private List<Integer> pages = new ArrayList<>();
     private Integer totalPage;
 
-    public void setPagination(Integer totalCount, Integer page, Integer size) {
-        int a = totalCount;
-        int b = size;
-        totalPage = (int) Math.ceil(a / (double) b);
+    public void setPagination(Integer totalPage, Integer page) {
+        this.totalPage = totalPage;
 
         page= (page<1)?1:(page>totalPage)?totalPage:page;
         this.page = page;
