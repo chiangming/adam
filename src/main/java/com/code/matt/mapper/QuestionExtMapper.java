@@ -10,4 +10,6 @@ import com.code.matt.model.Question;
  */
 public interface QuestionExtMapper {
     int updateByIncreaseViewCount(Question record);
+
+    void updateByIncreaseCommentCount(Question question);
 }
