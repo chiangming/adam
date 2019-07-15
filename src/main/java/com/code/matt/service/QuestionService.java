@@ -4,6 +4,7 @@ import com.code.matt.dto.PaginationDTO;
 import com.code.matt.dto.QuestionDTO;
 import com.code.matt.exception.CustomizeErrorCode;
 import com.code.matt.exception.CustomizeException;
+import com.code.matt.mapper.QuestionExtMapper;
 import com.code.matt.mapper.QuestionMapper;
 import com.code.matt.mapper.UserMapper;
 import com.code.matt.model.Question;
@@ -28,6 +29,9 @@ import java.util.List;
 public class QuestionService {
     @Autowired
     private QuestionMapper questionMapper;
+
+    @Autowired
+    private QuestionExtMapper questionExtMapper;
 
     @Autowired
     private UserMapper userMapper;
@@ -115,6 +119,9 @@ public class QuestionService {
             // 创建
             question.setGmtCreate(System.currentTimeMillis());
             question.setGmtModify(question.getGmtCreate());
+            question.setViewCount(0);
+            question.setLikeCount(0);
+            question.setCommentCount(0);
             questionMapper.insert(question);
         } else {
             // 更新
@@ -131,5 +138,12 @@ public class QuestionService {
                 throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
             }
         }
+    }
+
+    public void incView(Integer id) {
+        Question question = new Question();
+        question.setId(id);
+        question.setViewCount(1);
+        questionExtMapper.updateByIncreaseViewCount(question);
     }
 }
