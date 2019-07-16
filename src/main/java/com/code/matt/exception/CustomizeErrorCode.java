@@ -13,8 +13,8 @@ public enum CustomizeErrorCode implements ICustomizeErrorCode {
     NO_LOGIN(2003, "The current operation requires login. Please try again after login."),
     SYS_ERROR(2004, "There is something wrong with the service, you can try again later!"),
     TYPE_PARAM_WRONG(2005, "Comment type error or nonexistence"),
-    COMMENT_NOT_FOUND(2006, "The comments in the reply do not exist. Would you like to try another one?");
-
+    COMMENT_NOT_FOUND(2006, "The comments in the reply do not exist. Would you like to try another one?"),
+    CONTENT_IS_EMPTY(2007, "Input cannot be empty");
 
 
     private Integer code;

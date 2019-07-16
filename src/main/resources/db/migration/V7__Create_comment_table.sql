@@ -5,7 +5,8 @@ create table COMMENT
   TYPE         INTEGER not null,
   COMMENTATOR  BIGINT not null,
   GMT_CREATE   BIGINT  not null,
-  GMT_MODIFIED BIGINT  not null,
+  GMT_MODIFY   BIGINT  not null,
   LIKE_COUNT   BIGINT default 0,
+  COMMENT_COUNT INTEGER DEFAULT 0,
   CONTENT      VARCHAR(1024)
 );
