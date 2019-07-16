@@ -14,8 +14,9 @@ public enum CustomizeErrorCode implements ICustomizeErrorCode {
     SYS_ERROR(2004, "There is something wrong with the service, you can try again later!"),
     TYPE_PARAM_WRONG(2005, "Comment type error or nonexistence"),
     COMMENT_NOT_FOUND(2006, "The comments in the reply do not exist. Would you like to try another one?"),
-    CONTENT_IS_EMPTY(2007, "Input cannot be empty");
-
+    CONTENT_IS_EMPTY(2007, "Input cannot be empty"),
+    READ_NOTIFICATION_FAIL(2008, "Fail to get notification"),
+    NOTIFICATION_NOT_FOUND(2009, "Notification not found"),;
 
     private Integer code;
     private String message;
