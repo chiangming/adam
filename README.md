@@ -17,6 +17,8 @@ Demo project for Spring Boot
 [Lombok](https://www.projectlombok.org/)    
 [Mybatis Generate](http://www.mybatis.org/generator/)
 [Markdown Plugin](http://editor.md.ipandao.com/)  
+[UFfile SDK](https://github.com/ucloud/ufile-sdk-java)  
+
 ## Scripts
 
 ###SQL statements

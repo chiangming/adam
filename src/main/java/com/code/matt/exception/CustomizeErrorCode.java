@@ -16,7 +16,8 @@ public enum CustomizeErrorCode implements ICustomizeErrorCode {
     COMMENT_NOT_FOUND(2006, "The comments in the reply do not exist. Would you like to try another one?"),
     CONTENT_IS_EMPTY(2007, "Input cannot be empty"),
     READ_NOTIFICATION_FAIL(2008, "Fail to get notification"),
-    NOTIFICATION_NOT_FOUND(2009, "Notification not found"),;
+    NOTIFICATION_NOT_FOUND(2009, "Notification not found"),
+    FILE_UPLOAD_FAIL(2010, "Fail to upload picture"),;;
 
     private Integer code;
     private String message;
