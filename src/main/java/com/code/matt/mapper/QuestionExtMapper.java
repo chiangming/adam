@@ -1,5 +1,6 @@
 package com.code.matt.mapper;
 
+import com.code.matt.dto.QuestionQueryDTO;
 import com.code.matt.model.Question;
 
 import java.util.List;
@@ -16,4 +17,8 @@ public interface QuestionExtMapper {
     void updateByIncreaseCommentCount(Question question);
 
     List<Question> selectRelated(Question question);
+
+    Integer countBySearch(QuestionQueryDTO questionQueryDTO);
+
+    List<Question> selectBySearch(QuestionQueryDTO questionQueryDTO);
 }

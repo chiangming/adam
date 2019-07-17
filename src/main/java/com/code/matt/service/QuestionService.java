@@ -2,6 +2,7 @@ package com.code.matt.service;
 
 import com.code.matt.dto.PaginationDTO;
 import com.code.matt.dto.QuestionDTO;
+import com.code.matt.dto.QuestionQueryDTO;
 import com.code.matt.exception.CustomizeErrorCode;
 import com.code.matt.exception.CustomizeException;
 import com.code.matt.mapper.QuestionExtMapper;
@@ -39,10 +40,18 @@ public class QuestionService {
     @Autowired
     private UserMapper userMapper;
 
-    public PaginationDTO List(Integer page, Integer size) {
-        PaginationDTO paginationDTO = new PaginationDTO();
-        Integer totalCount = (int) questionMapper.countByExample(new QuestionExample());
+    public PaginationDTO list(String search,Integer page, Integer size) {
 
+        if (StringUtils.isNotBlank(search)) {
+            String[] tags = StringUtils.split(search, " ");
+            search = Arrays.stream(tags).collect(Collectors.joining("|"));
+        }
+
+        PaginationDTO paginationDTO = new PaginationDTO();
+        QuestionQueryDTO questionQueryDTO = new QuestionQueryDTO();
+        questionQueryDTO.setSearch(search);
+
+        Integer totalCount = questionExtMapper.countBySearch(questionQueryDTO);
 
         int a = totalCount;
         int b = size;
@@ -52,9 +61,9 @@ public class QuestionService {
 
         Integer offset = size * (page - 1);
 
-        QuestionExample questionExample = new QuestionExample();
-        questionExample.setOrderByClause("gmt_create desc");
-        List<Question> questions = questionMapper.selectByExampleWithRowbounds(questionExample, new RowBounds(offset, size));
+        questionQueryDTO.setSize(size);
+        questionQueryDTO.setPage(offset);
+        List<Question> questions = questionExtMapper.selectBySearch(questionQueryDTO);
         List<QuestionDTO> questionDTOList = new ArrayList<>();
 
 
