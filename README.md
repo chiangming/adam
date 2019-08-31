@@ -1,5 +1,5 @@
 ## Adam
-Demo project for Spring Boot
+A website for sharing something...
 
 ## Document
 [Spring Document](https://spring.io/guides)     
@@ -20,23 +20,6 @@ Demo project for Spring Boot
 [UFfile SDK](https://github.com/ucloud/ufile-sdk-java)  
 
 ## Scripts
-
-###SQL statements
-```sql
-CREATE TABLE USER
-(
-    ID int AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    ACCOUNT_ID VARCHAR(100),
-    NAME VARCHAR(50),
-    TOKEN VARCHAR(36),
-    GMT_CREATE BIGINT,
-    GMT_MODIFIED BIGINT
-);
-```
-
-```sql
-ALTER TABLE USER ADD BIO varchar(256) NULL;
-```
 
 ###Flyway script
 ```bash
