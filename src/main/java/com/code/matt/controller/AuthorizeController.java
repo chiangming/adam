@@ -6,6 +6,8 @@ import com.code.matt.mapper.UserMapper;
 import com.code.matt.model.User;
 import com.code.matt.provider.GithubProvider;
 import com.code.matt.service.UserService;
+
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -24,6 +26,7 @@ import java.util.UUID;
  * @Modified: By
  */
 @Controller
+@Slf4j
 public class AuthorizeController {
 
     @Autowired
@@ -66,12 +69,13 @@ public class AuthorizeController {
             user.setGmtModify(user.getGmtCreate());
             user.setAvatarUrl(githubUser.getAvatarUrl());
             userService.createOrUpdate(user);
-
+            log.info("callback get github success,{}",githubUser);
             //将token写入cookie
             response.addCookie(new Cookie("token",token));
 
             return "redirect:/";
         }else{
+            log.error("callback get github error,{}",githubUser);
             //登录失败 重新登录
             return "redirect:/";
         }

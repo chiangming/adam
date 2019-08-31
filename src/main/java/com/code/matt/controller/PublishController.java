@@ -75,11 +75,11 @@ public class PublishController {
             return "publish";
         }
 
-        String invalid = TagCache.filterInvalid(tag);
+        /*String invalid = TagCache.filterInvalid(tag);
         if (StringUtils.isNotBlank(invalid)) {
             model.addAttribute("error", "Illegal labels:" + invalid);
             return "publish";
-        }
+        }*/
 
         User user = (User) request.getSession().getAttribute("user");
         if (user == null) {
